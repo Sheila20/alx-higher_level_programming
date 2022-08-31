@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def search_replace(my_list, search, replace):
-    def s_r_elm(elm):
-        return (elm if elm != search else replace)
-    return list(map(s_r_elm, my_list))
-#endif
+    new_list = my_list.copy()
+    for idx, item in enumerate(new_list):
+        if item == search:
+            new_list[idx] = replace
+    return new_list
