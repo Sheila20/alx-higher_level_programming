@@ -1,7 +1,22 @@
 #!/usr/bin/python3
-"""docstring for Square"""
+"""Square class definition"""
+
+
 class Square:
-    """docstring for init"""
+    """Represents a square
+
+    Attributes:
+        __size (int): size of a side of the square
+    """
     def __init__(self, size):
+        """Initializes a square
+
+        Args:
+            size (int): size of a side of the square
+
+        Returns: None
+        """
         self.__size = size
+
+
 
