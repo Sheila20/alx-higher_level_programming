@@ -2,8 +2,8 @@
 """
     Unittest for Base class
 """
-import unittest
-import sys
+
+import unittestimport sys
 from io import StringIO
 from models.square import Square
 from models.rectangle import Rectangle
@@ -27,11 +27,11 @@ class TestSquareclass(unittest.TestCase):
         exp = {'x': 3, 'y': 4, 'id': 5, 'size': 2}
         self.assertEqual(r1, exp)
 
-    def test_to_dict_1(self):
-        """ Tear Dowm"""
-        r1 = self.inst.to_dictionary()
-        exp = {'x': 3, 'y': 4, 'id': 5, 'size': 2}
-        self.assertEqual(type(r1).__name__, type(exp).__name__)
+     def test_to_dict_1(self):
+         """ Tear Dowm"""
+         r1 = self.inst.to_dictionary()
+         exp = {'x': 3, 'y': 4, 'id': 5, 'size': 2}
+         self.assertEqual(type(r1).__name__, type(exp).__name__)
 
     def test_area(self):
         """ Test Area"""
@@ -60,11 +60,11 @@ class TestSquareclass(unittest.TestCase):
         sys.stdout = t
         return o
 
-     def test_display(self):
-         """ Test display"""
-         display = "\n\n\n\n   ##\n   ##\n"
-         o = self.out_c()
-         self.assertEqual(o, display)
+    def test_display(self):
+        """ Test display"""
+        display = "\n\n\n\n   ##\n   ##\n"
+        o = self.out_c()
+        self.assertEqual(o, display)
 
     def test_display_1(self):
         """ Test display"""
@@ -129,10 +129,10 @@ class TestSquareclass(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             self.inst.x = "Fault"
 
-    def test_raise_y(self):
-        """ test raise heigt"""
-        with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            self.inst.y = "Fault"
+     def test_raise_y(self):
+         """ test raise heigt"""
+         with self.assertRaisesRegex(TypeError, "y must be an integer"):
+             self.inst.y = "Fault"
 
     def test_raise_width_1(self):
         """ test raise heigt"""

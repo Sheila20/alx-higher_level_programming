@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """
-    Unittest for Base class
+   Unittest for Base class
 """
 import unittest
 from models.base import Base
-
 
 class TestBaseclass(unittest.TestCase):
     """ Test cases Base class"""
