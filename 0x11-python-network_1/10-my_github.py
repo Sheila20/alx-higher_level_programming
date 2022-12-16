@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-import sys
+"""Takes my Github credentials (username and password)
+and uses the Github API to display my Github id
+"""
+
+from sys import argv
 import requests
 
+
 if __name__ == "__main__":
-    user_name = sys.argv[1]
-    passwd = sys.argv[2]
-    url = "https://api.github.com/user"
-    response = requests.get(url, auth=(user_name, passwd))
-    try:
-        print(response.json()["id"])
-    except KeyError:
-        print("None")
+    url = 'https://api.github.com/user'
+    req = requests.get(url, auth=(argv[1], argv[2])).json()
+
+    print(req.get('id'))

@@ -1,20 +1,18 @@
 #!/usr/bin/python3
-import sys
+"""List 10 commits (from the most recent to oldest)
+of a repository by user.
+This script use the Github API and print all commits
+by: `<sha>: <author name>` (one by line).
+"""
+
+from sys import argv
 import requests
 
 
 if __name__ == "__main__":
-    repo_name = sys.argv[1]
-    owner = sys.argv[2]
+    url = 'https://api.github.com'
+    uri = '{0}/repos/{1}/{2}/commits'.format(url, argv[2], argv[1])
+    req = requests.get(uri).json()
 
-    url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo_name)
-    response = requests.get(url)
-    data = response.json()
-    count = 0
-    for commit in data:
-        if count > 9:
-            break
-        user = commit.get("commit").get("author").get("name")
-        print("{}: {}".format(commit.get("sha"), user))
-
-        count += 1
+    for com in req[0:10]:
+        print(com['sha'] + ':', com['commit']['author']['name'])
