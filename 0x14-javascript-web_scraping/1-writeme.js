@@ -1,7 +1,10 @@
 #!/usr/bin/node
+const fs = require('fs');
+const destPath = process.argv[2];
+const sourceStr = process.argv[3];
 
-const request = require('request');
-
-request(process.argv[2], function (_err, res) {
-  console.log('code:', res.statusCode); // Print the response status code if a response was received
+fs.appendFile(destPath, sourceStr, 'utf8', function (err) {
+  if (err) {
+    console.log(err);
+  }
 });
